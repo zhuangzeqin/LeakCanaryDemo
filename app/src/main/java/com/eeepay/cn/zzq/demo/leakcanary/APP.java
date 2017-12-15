@@ -2,6 +2,7 @@ package com.eeepay.cn.zzq.demo.leakcanary;
 
 import android.app.Application;
 
+import com.eeepay.cn.zzq.demo.leakcanary.utils.AppUtils;
 import com.squareup.leakcanary.LeakCanary;
 
 /**
@@ -15,6 +16,7 @@ public class APP extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        AppUtils.syncIsDeBug(getApplicationContext());
         if (LeakCanary.isInAnalyzerProcess(this)) {
             return;
         }

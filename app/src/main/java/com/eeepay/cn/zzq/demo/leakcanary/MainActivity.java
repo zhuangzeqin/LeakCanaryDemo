@@ -9,6 +9,9 @@ import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import com.eeepay.cn.zzq.demo.leakcanary.utils.AppUtils;
 
 import java.lang.ref.WeakReference;
 
@@ -108,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 finish();
                 break;
             case R.id.button5:
-
+                Toast.makeText(this, "是否Debug:"+ AppUtils.isDebug(), Toast.LENGTH_SHORT).show();
                 break;
             case R.id.button6:
                 //对于使用了BraodcastReceiver，ContentObserver，File，Cursor，Stream，Bitmap等资源的使用，

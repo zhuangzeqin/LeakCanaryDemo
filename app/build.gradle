@@ -1,6 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'eeepay'
+            keyPassword 'eeepay'
+            storeFile file('androidkeystore1.jks')
+            storePassword 'eeepay'
+        }
+    }
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.eeepay.cn.zzq.demo.leakcanary"
@@ -13,11 +21,13 @@ android {
     buildTypes {
         release {
             minifyEnabled false
+            signingConfig signingConfigs.config
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
 
         debug {
             minifyEnabled false
+            signingConfig signingConfigs.config
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
